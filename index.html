@@ -1,14 +1,109 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>랜덤 키워드 카드</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>지그재그 카드 애니메이션</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #f9f9f9;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 30px;
+    }
+
+    .card-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      height: 300px;
+    }
+
+    .card {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 180px;
+      padding: 16px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      border: 1px solid #ddd;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: transform 0.8s ease, opacity 0.8s ease;
+      font-size: 18px;
+      text-align: center;
+      word-break: keep-all;
+    }
+
+    .card.show {
+      opacity: 1;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        width: 140px;
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
   <button id="showCardsBtn">랜덤 키워드 카드</button>
-  <div class="card-container"></div>
+  <div class="card-container" id="cardContainer"></div>
 
-  <script src="scripts.js"></script>
+  <script>
+    const keywords = [
+      "바람", "무너짐", "투명한", "울림", "조각", "흐릿한", "불완전", "공명",
+      "유리", "침묵", "대비", "기억", "스며듦", "파편", "흐름", "불안정", "고요",
+      "전이", "맥박", "푸른빛", "차가운", "균형", "가면", "낯섦", "무중력", "틈",
+      "기묘한", "반복", "수면", "이음", "억제된", "부유", "무형", "얽힘", "중첩",
+      "감정선", "지연", "균열", "감싸임", "이질감", "긴장", "번짐", "구름", "생명",
+      "대비", "역설", "망각", "유동성", "잠재", "닿지 않는"
+    ];
+
+    function getRandomKeywords(count) {
+      const shuffled = [...keywords].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    }
+
+    document.getElementById("showCardsBtn").addEventListener("click", () => {
+      const container = document.getElementById("cardContainer");
+      container.innerHTML = ""; // 기존 카드 제거
+
+      const selected = getRandomKeywords(3);
+      const directions = [
+        { x: -120, y: -120 }, // 왼쪽 위
+        { x: 120, y: -140 },  // 오른쪽 위
+        { x: -100, y: -180 }  // 왼쪽 위 다시
+      ];
+
+      selected.forEach((word, index) => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.textContent = `키워드: ${word}`;
+        container.appendChild(card);
+
+        // 애니메이션 지연
+        setTimeout(() => {
+          card.classList.add("show");
+          const dx = directions[index].x;
+          const dy = directions[index].y;
+          card.style.transform = `translate(-50%, -50%) translate(${dx}px, ${dy}px)`;
+        }, index * 100); // 약간 시간 차를 두면 더 자연스러움
+      });
+    });
+  </script>
 </body>
 </html>
