@@ -2,35 +2,13 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>디학 랜덤 키워드 생성기</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>랜덤 키워드 카드</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>디학 2025 마이산 MT</h1>
-  <h2>랜덤 키워드 생성기</h2>
-  <div class="keyword" id="keyword">키워드를 생성해보세요</div>
-  <button onclick="generateKeywords()">키워드 생성</button>
+  <button id="showCardsBtn">랜덤 키워드 카드</button>
+  <div class="card-container"></div>
 
-  <script>
-    const keywords = [
-      "바람", "흑백요리사", "투명한", "올림픽", "헬베티카", "흐릿한", "산악회", "아바타", 
-      "유리", "나무늘보", "대비", "국밥", "젤리", "첫눈", "당근마켓", "엔딩요정", "디즈니랜드", 
-      "화들짝", "조곤조곤", "푸른빛", "필크로우", "제로콜라", "천국도", "감자", "무중력", "틈", 
-      "굴림체", "반복", "수면", "피클", "야작", "녹아내리는고양이", "1호선", "발차기", "중첩", 
-      "떡볶이", "티니핑", "모자", "감싸임", "윤슬", "꽁냥꽁냥", "100점시험지", "구름", "바다", 
-      "대비", "물구나무", "발가락", "포복", "윤여경선생님", "김의래선생님", "박민지선생님", "이채영선생님", "도규"
-    ];
-
-    function generateKeywords() {
-      let selected = [];
-      while (selected.length < 2) {
-        const keyword = keywords[Math.floor(Math.random() * keywords.length)];
-        if (!selected.includes(keyword)) {
-          selected.push(keyword);
-        }
-      }
-      document.getElementById('keyword').textContent = selected.join(' · ');
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
