@@ -21,6 +21,17 @@ document.getElementById("refreshIcon").addEventListener("click", () => {
   location.reload(); 
 });
 
+// 더블탭 확대 방지
+let lastTouch = 0;
+document.addEventListener('touchend', function (event) {
+  const now = new Date().getTime();
+  if (now - lastTouch <= 300) {
+    event.preventDefault(); 
+  }
+  lastTouch = now;
+}, { passive: false });
+
+
 // 버튼 클릭 시 카드 보여주기
 document.getElementById("showCardsBtn").addEventListener("click", () => {
   const container = document.getElementById("cardContainer");
