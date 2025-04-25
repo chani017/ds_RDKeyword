@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   align-items: center;
   background: #202020;
+  overflow: hidden;
 }
 
 button {
