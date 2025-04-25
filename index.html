@@ -4,7 +4,81 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>디학 랜덤 키워드 생성기</title>
-  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+  margin: 0;
+  padding: 2rem;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #282828;
+}
+
+button {
+  position: fixed;              
+  bottom: 20px;                 
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 16px 32px;
+  margin: 40px auto;
+  font-size: 18px;
+  background-color: #131313;
+  color: rgb(217, 217, 217);
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:active {
+  transform: translateX(-50%) scale(0.96);
+}
+
+.top-icon {
+  display: block;
+  width: 50px;          
+  margin: 20px auto 20px;          
+}
+
+.card-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 160px auto 0;
+  padding: 0 20px 120px;
+}
+
+.card {
+  font-family: 'Paperlogy-8ExtraBold';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #e74291;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: transform 0.8s ease, opacity 0.8s ease;
+  font-size: 50px;
+  color: #f9f9f9;
+  text-align: center;
+  white-space: normal;
+  word-break: keep-all;
+  padding: 48px 84px;   
+  display: inline-block;  
+  max-width: 80vw;       
+}
+
+.card.show {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: 100px;
+    font-size: 20px;
+  }
+}
+  </style>
 </head>
 <body>
   <img src="icon/DS_logo.png" alt="아이콘" class="top-icon" />
