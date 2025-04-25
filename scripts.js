@@ -30,8 +30,8 @@ document.getElementById("showCardsBtn").addEventListener("click", () => {
     const rotation = (Math.random() * 10 - 5).toFixed(2);
 
     // 초기 위치 설정 (위에 숨김)
-    card.style.top = `${index * 200}px`;
-    card.style.left = "50%";
+    card.style.top = `${index * 100}px`;
+    card.style.left = "45%";
     card.style.transform = `translate(-50%, -100px) rotate(${rotation}deg)`;
 
     // 순차적으로 나타나도록 딜레이 설정

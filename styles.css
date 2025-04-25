@@ -1,10 +1,3 @@
-@font-face {
-  font-family: 'Paperlogy-8ExtraBold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
-  font-weight: 800;
-  font-style: normal;
-}
-
 body {
   margin: 0;
   padding: 2rem;
@@ -46,12 +39,11 @@ button:active {
   position: relative;
   width: 100%;
   max-width: 500px;
-  margin: 160px auto 0;
+  margin: 80px auto 0;
   padding: 0 20px 120px;
 }
 
 .card {
-  font-family: 'Paperlogy-8ExtraBold';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -64,9 +56,9 @@ button:active {
   text-align: center;
   white-space: normal;
   word-break: keep-all;
-  padding: 48px 84px;   
+  padding: 24px 32px;
   display: inline-block;  
-  max-width: 80vw;       
+  width: fit-content;       
 }
 
 .card.show {
