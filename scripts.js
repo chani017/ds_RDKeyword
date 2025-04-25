@@ -7,28 +7,37 @@
       "대비", "물구나무", "발가락", "포복", "윤여경선생님", "김의래선생님", "박민지선생님", "이채영선생님", "도규님"
     ];
 
-    function getRandomKeywords(count) {
-      const shuffled = [...keywords].sort(() => 0.5 - Math.random());
-      return shuffled.slice(0, count);
-    }
 
-    document.getElementById("showCardsBtn").addEventListener("click", () => {
-      const container = document.getElementById("cardContainer");
-      container.innerHTML = ""; // 기존 카드 제거
+// 키워드 배열을 섞고 앞에서 3개 뽑기
+function getRandomKeywords(count) {
+  const shuffled = [...keywords].sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+}
 
-      const selected = getRandomKeywords(3);
-      selected.forEach((word, index) => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.textContent = `${word}`;
-        container.appendChild(card);
+// 버튼 클릭 시 카드 보여주기
+document.getElementById("showCardsBtn").addEventListener("click", () => {
+  const container = document.getElementById("cardContainer");
+  container.innerHTML = ""; // 기존 카드 제거
 
-        // 수직 위치 지정
-        card.style.top = `${index * 110}px`;
+  const selected = getRandomKeywords(3);
+  selected.forEach((word, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.textContent = `${word}`;
+    container.appendChild(card);
 
-        // 카드 등장 애니메이션
-        setTimeout(() => {
-          card.classList.add("show");
-        }, index * 300); // 등장 간격 차이
-      });
-    });
+    // 랜덤 회전 각도 (-5도 ~ +5도)
+    const rotation = (Math.random() * 10 - 5).toFixed(2);
+
+    // 초기 위치 설정 (위에 숨김)
+    card.style.top = `${index * 200}px`;
+    card.style.left = "50%";
+    card.style.transform = `translate(-50%, -100px) rotate(${rotation}deg)`;
+
+    // 순차적으로 나타나도록 딜레이 설정
+    setTimeout(() => {
+      card.classList.add("show");
+      card.style.transform = `translate(-50%, 0) rotate(${rotation}deg)`;
+    }, index * 200);
+  });
+});

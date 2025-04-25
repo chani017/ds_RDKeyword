@@ -1,69 +1,72 @@
 @font-face {
-  font-family: 'Pretendard-Regular';
-  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'KOTRA_BOLD-Bold';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
-  font-weight: normal;
+  font-family: 'Paperlogy-8ExtraBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-3@1.0/Paperlogy-8ExtraBold.woff2') format('woff2');
+  font-weight: 800;
   font-style: normal;
 }
 
 body {
-  font-family: 'Pretendard-Regular';
   margin: 0;
   padding: 2rem;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #f9f9f9;
+  background: #282828;
 }
 
 button {
-  position: fixed;              /* ✅ 화면에 고정 */
-  bottom: 20px;                 /* ✅ 하단 여백 */
+  position: fixed;              
+  bottom: 20px;                 
   left: 50%;
   transform: translateX(-50%);
   padding: 16px 32px;
+  margin: 40px auto;
   font-size: 18px;
-  background-color: #333;
-  color: white;
+  background-color: #131313;
+  color: rgb(217, 217, 217);
   border: none;
-  border-radius: 12px;
   cursor: pointer;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+button:active {
+  transform: translateX(-50%) scale(0.96); /* 눌리는 효과 */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* 그림자 줄이기 */
+}
+
+.top-icon {
+  display: block;
+  width: 50px;          
+  margin: 20px auto 20px;          
 }
 
 .card-container {
   position: relative;
   width: 100%;
   max-width: 500px;
-  height: 300px;
+  margin: 160px auto 0;
+  padding: 0 20px 120px;
 }
 
 .card {
-  /* 기존 코드 유지 */
+  font-family: 'Paperlogy-8ExtraBold';
   position: absolute;
   top: 50%;
   left: 50%;
-  background: #ff03a3;
-  border: 1px solid #ddd;
+  background: #e74291;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: transform 0.8s ease, opacity 0.8s ease;
   font-size: 50px;
   color: #f9f9f9;
   text-align: center;
-  white-space: normal;        /* ✅ 줄바꿈 허용 */
-  word-break: keep-all;       /* ✅ 단어 중간 끊지 않음 */
-  padding: 16px 24px;         /* ✅ 패딩 조정 */
-  display: inline-block;      /* ✅ 내용 기반 크기 조정 */
-  max-width: 80vw;            /* ✅ 모바일에서 너무 커지지 않도록 제한 */
+  white-space: normal;
+  word-break: keep-all;
+  padding: 48px 84px;   
+  display: inline-block;  
+  max-width: 80vw;       
 }
 
 .card.show {
