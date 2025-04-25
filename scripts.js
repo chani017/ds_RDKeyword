@@ -16,6 +16,11 @@ function getRandomKeywords(count) {
   return shuffled.slice(0, count);
 }
 
+// 페이지 새로고침
+document.getElementById("refreshIcon").addEventListener("click", () => {
+  location.reload(); 
+});
+
 // 버튼 클릭 시 카드 보여주기
 document.getElementById("showCardsBtn").addEventListener("click", () => {
   const container = document.getElementById("cardContainer");
