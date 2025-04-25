@@ -27,7 +27,7 @@ document.getElementById("showCardsBtn").addEventListener("click", () => {
     container.appendChild(card);
 
     // 랜덤 회전 각도 (-5도 ~ +5도)
-    const rotation = (Math.random() * 10 - 5).toFixed(2);
+    const rotation = (Math.random() * 20 - 5).toFixed(2);
 
     // 초기 위치 설정 (위에 숨김)
     card.style.top = `${index * 100}px`;
