@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'BookkGothic-Bd';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/BookkGothic-Bd.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   padding: 2rem;
@@ -9,6 +16,7 @@ body {
 }
 
 button {
+  font-family: 'BookkGothic-Bd';
   position: fixed;              
   bottom: 20px;                 
   left: 50%;
@@ -33,7 +41,7 @@ button:active {
   display: block;
   width: 40px;          
   margin: 0px auto 20px;          
-}
+} 
 
 .card-container {
   position: relative;
@@ -44,11 +52,12 @@ button:active {
 }
 
 .card {
+  font-family: 'BookkGothic-Bd';
   position: absolute;
   top: 50%;
   left: 50%;
   background: #e74291;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) rotate(var(--rotate, 0deg));
   opacity: 0;
   transition: transform 0.8s ease, opacity 0.8s ease;
   font-size: 50px;
@@ -57,16 +66,16 @@ button:active {
   word-break: keep-all;
   padding: 24px 32px;
   display: inline-block;   
-  max-width: 90vw;  
+  max-width: none;  
 }
 
 .card.show {
   opacity: 1;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .card {
-    width: 100px;
-    font-size: 20px;
+    width: fit-content; 
+    font-size: 50px;
   }
 }
