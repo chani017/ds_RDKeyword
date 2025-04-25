@@ -7,7 +7,6 @@
       "대비", "물구나무", "발가락", "포복", "윤여경선생님", "김의래선생님", "박민지선생님", "이채영선생님", "도규님"
     ];
 
-
 // 키워드 배열을 섞고 앞에서 3개 뽑기
 function getRandomKeywords(count) {
   const shuffled = [...keywords].sort(() => 0.5 - Math.random());
